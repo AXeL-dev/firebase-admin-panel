@@ -8,15 +8,15 @@ import { RouterModule, Routes } from '@angular/router';
 const APP_ROUTES: Routes = [
   {
     path: 'schemas',
-    loadChildren: 'app/schemas/schemas.module#SchemasModule'
+    loadChildren: () => import('app/schemas/schemas.module').then(m => m.SchemasModule)
   },
   {
     path: 'configurations',
-    loadChildren: 'app/configurations/configurations.module#ConfigurationsModule'
+    loadChildren: () => import('app/configurations/configurations.module').then(m => m.ConfigurationsModule)
   },
   {
     path: 'crud',
-    loadChildren: 'app/crud/crud.module#CrudModule'
+    loadChildren: () => import('app/crud/crud.module').then(m => m.CrudModule)
   }
 ];
 @NgModule({
